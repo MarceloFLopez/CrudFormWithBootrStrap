@@ -19,6 +19,7 @@
 </head>
 <body>
 	<div th:insert="fragment/publica-nav :: nav"></div>
+	<main class="mt-4 col-md-9 offset-md-1">
 	<div class="container-fluid mt-3">
 		<div class="row">
 			<h2>Alterar usuário</h2>
@@ -27,8 +28,8 @@
 					th:object="${usuario}" method="post">
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Nome:</label>
-						<div class="col-sm-5">
+						<label class="col-sm-2 col-form-label">Nome:</label>
+						<div class="col-sm-4">
 							<input class="form-control" type="text" th:field="*{nome}">
 						</div>
 						<div class="col-sm-5">
@@ -38,8 +39,8 @@
 					</div>
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">CPF:</label>
-						<div class="col-sm-3">
+						<label class="col-sm-2 col-form-label">CPF:</label>
+						<div class="col-sm-4">
 							<input class="form-control" type="text" th:field="*{cpf}">
 						</div>
 						<div class="col-sm-5">
@@ -50,8 +51,8 @@
 
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Nascimento:</label>
-						<div class="col-sm-2">
+						<label class="col-sm-2 col-form-label">Nascimento:</label>
+						<div class="col-sm-3">
 							<input class="form-control" type="text"
 								th:field="*{dataNascimento}">
 						</div>
@@ -65,8 +66,8 @@
 
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Email:</label>
-						<div class="col-sm-2">
+						<label class="col-sm-2 col-form-label">Email:</label>
+						<div class="col-sm-4">
 							<input class="form-control" type="text" th:field="*{email}">
 						</div>
 						<div class="col-sm-5">
@@ -76,8 +77,8 @@
 					</div>
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Login:</label>
-						<div class="col-sm-2">
+						<label class="col-sm-2 col-form-label">Login:</label>
+						<div class="col-sm-4">
 							<input class="form-control" type="text" th:field="*{login}">
 						</div>
 						<div class="col-sm-5">
@@ -87,8 +88,8 @@
 					</div>
 
 					<div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Senha:</label>
-						<div class="col-sm-2">
+						<label class="col-sm-2 col-form-label">Senha:</label>
+						<div class="col-sm-4">
 							<input class="form-control" type="text" th:field="*{password}">
 						</div>
 						<div class="col-sm-5">
@@ -133,6 +134,7 @@
 				</form>
 			</div>
 		</div>
+			</div>
 	</div>
 	<div th:insert="fragment/publica-footer :: footer"></div>
 </body>

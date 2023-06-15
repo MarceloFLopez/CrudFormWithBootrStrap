@@ -21,10 +21,12 @@
 				<table class="table table-striped fs-5 mt-4">
 					<thead>
 						<tr>
+						    <th>#</th>
 							<th>Nome</th>
 							<th>CPF</th>
 							<th>Nascimento</th>
 							<th>E-mail</th>
+							<th>Login</th>
 							<th>Ações</th>
 						</tr>
 					</thead>
@@ -36,10 +38,12 @@
 
 						<!-- Conteudo da lista -->
 						<tr th:each="usuario : ${usuarios}">
+							<td><span th:text="${usuario.id}">  </span></td>
 							<td><span th:text="${usuario.nome}"> Nome </span></td>
 							<td><span th:text="${usuario.cpf}"> Cpf </span></td>
 							<td><span th:text="${#dates.format(usuario.dataNascimento, 'dd/MM/yyyy')}"> Nascimento </span></td>
 							<td><span th:text="${usuario.email}"> E-mail </span></td>
+							<td><span th:text="${usuario.login}"> E-Login </span></td>
 
 							<!-- 				<td><span class="fs-5"
 								th:text="${usuario.ativo} ? 'ATIVO' : 'NÃO ATIVO'">

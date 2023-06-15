@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.crud.model.Usuario;
 
-public interface UsuarioServiceImpl {
+public interface  UsuarioServiceImpl {
 
 	Usuario salvarUsuario(Usuario usuario);
 
