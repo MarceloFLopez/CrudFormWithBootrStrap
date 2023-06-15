@@ -5,7 +5,14 @@
 - 🌱 Linguagem de programação: Java/Sprinboot
 - 📫 Contate me: marceloferreiralopez@gmail.com<br>
 
-
+<h2>Técnologias IDEs</h2>
+    <div style="display: inline_block"> 
+  <img align="center" alt="Springboot" height="75" width="75"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg">
+  <img align="center" alt="Java" height="75" width="75"    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original-wordmark.svg" />
+    
+   </div>
+   <br>
+<br>
  <div><h2>Técnologias Front-End</h2></div>
   <div style="display: inline_block"> 
    <img align="center" alt="HTML" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
