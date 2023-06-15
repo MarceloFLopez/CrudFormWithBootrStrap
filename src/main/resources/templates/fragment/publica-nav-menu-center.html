@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" th:href="@{/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css}">
+<script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" th:href="@{/bootstrap-icons-1.10.5/font/bootstrap-icons.css}">
+<body>
+
+	<nav th:fragment="nav-menu"
+		class="navbar navbar-expand-xl bg-body justify-content-center ">
+		<ul class="nav nav-tabs fs-5 ml-3 " id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+					data-bs-target="#home-tab-pane" type="button" role="tab"
+					aria-controls="home-tab-pane" aria-selected="true">
+					<a class="text-decoration-none" href="/usuario/admin/listar">Listar Usuarios</a>
+				</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link " id="profile-tab" data-bs-toggle="tab"
+					data-bs-target="#profile-tab-pane" type="button" role="tab"
+					aria-controls="profile-tab-pane" aria-selected="false">
+					<a class="text-decoration-none" href="#">Profile1</a>
+				</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link " id="profile-tab" data-bs-toggle="tab"
+					data-bs-target="#profile-tab-pane" type="button" role="tab"
+					aria-controls="profile-tab-pane" aria-selected="false">
+					<a class="text-decoration-none" href="#">Profile2</a>
+				</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link " id="profile-tab" data-bs-toggle="tab"
+					data-bs-target="#profile-tab-pane" type="button" role="tab"
+					aria-controls="profile-tab-pane" aria-selected="false">
+					<a class="text-decoration-none" href="#">Profile3</a>
+				</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link " id="profile-tab" data-bs-toggle="tab"
+					data-bs-target="#profile-tab-pane" type="button" role="tab"
+					aria-controls="profile-tab-pane" aria-selected="false">
+					<a class="text-decoration-none" href="#">Profile4</a>
+				</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link " id="profile-tab" data-bs-toggle="tab"
+					data-bs-target="#profile-tab-pane" type="button" role="tab"
+					aria-controls="profile-tab-pane" aria-selected="false">
+					<a class="text-decoration-none" href="#">Profile5</a>
+				</button>
+			</li>
+		</ul>
+	</nav>
+
+</body>
+</html>
