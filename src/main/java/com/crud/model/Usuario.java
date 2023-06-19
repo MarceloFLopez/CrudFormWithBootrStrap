@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -34,12 +35,10 @@ public class Usuario implements Serializable {
 	@CPF(message = "CPF Inválido!")
 	private String cpf;
 
-
 	@Basic
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date dataNascimento;
-
 
 	@Email(message = "Email Inválido!")
 	private String email;
@@ -47,6 +46,9 @@ public class Usuario implements Serializable {
 	@Size(min = 4, message = "O password deve ter no minimo 4 caracteres!")
 	@NotNull
 	private String password;
+
+	@NotNull
+	private Double altura;
 
 	@Size(min = 4, message = "O login deve ter no minimo 4 caracteres!")
 	@NotNull
@@ -78,14 +80,16 @@ public class Usuario implements Serializable {
 		this.cpf = cpf;
 	}
 
-	
-
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
 	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+		try {
+			this.dataNascimento = dataNascimento;
+		} catch (ConversionFailedException e) {
+			System.out.println(e.getMessage() + "Formato Inválido!");
+		}
 	}
 
 	public String getEmail() {
@@ -120,10 +124,19 @@ public class Usuario implements Serializable {
 		this.atvio = atvio;
 	}
 
+	public Double getAltura() {
+		return altura;
+	}
+
+	public void setAltura(Double altura) {
+		this.altura = altura;
+	}
+
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
-				+ ", email=" + email + ", password=" + password + ", login=" + login + ", atvio=" + atvio + "]";
+				+ ", email=" + email + ", password=" + password + ", altura=" + altura + ", login=" + login + ", atvio="
+				+ atvio + "]";
 	}
 
 }

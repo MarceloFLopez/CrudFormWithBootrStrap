@@ -14,23 +14,23 @@
 <style>
 .mensagem {
 	color: red;
+	font-size: 14px;
 }
 </style>
 </head>
 <body>
 	<div th:insert="fragment/publica-nav :: nav"></div>
-	
-	<main class="mt-4 col-md-9 offset-md-1">
-		<div class="container-fluid mt-3">
+
+		<div class="container col-lg-6 col-md-6 col-sm-6 justify-content-center card mt-3">
 			<div class="row">
-				<h2>Alterar usuário</h2>
+				<h2 class="text-center pt-3 pb-3">Alterar usuário</h2>
 				<div class="col">
 					<form th:action="@{/usuario/editar/{id}(id=${usuario.id})}"
 						th:object="${usuario}" method="post">
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Nome:</label>
-							<div class="col-sm-4">
+							<div class="col-sm-5">
 								<input class="form-control" type="text" th:field="*{nome}">
 							</div>
 							<div class="col-sm-5">
@@ -41,8 +41,9 @@
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">CPF:</label>
-							<div class="col-sm-4">
-								<input class="form-control" type="text" th:field="*{cpf}" placeholder="Ex: 123.456.789-10">
+							<div class="col-sm-5">
+								<input class="form-control" type="text" th:field="*{cpf}"
+									placeholder="Ex: 123.456.789-10">
 							</div>
 							<div class="col-sm-5">
 								<span class="mensagem" th:if="${#fields.hasErrors('cpf')}"
@@ -53,9 +54,9 @@
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Nascimento:</label>
-							<div class="col-sm-3">
-								<input class="form-control" type="text" placeholder="Ex: 01/10/2000"
-									th:field="*{dataNascimento}">
+							<div class="col-sm-5">
+								<input class="form-control" type="text"
+									placeholder="Ex: 01/10/2000" th:field="*{dataNascimento}">
 							</div>
 							<div class="col-sm-5">
 								<span class="mensagem"
@@ -68,18 +69,31 @@
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Email:</label>
-							<div class="col-sm-4">
-								<input class="form-control" type="text" th:field="*{email}" placeholder="exemplo@email.com">
+							<div class="col-sm-5">
+								<input class="form-control" type="text" th:field="*{email}"
+									placeholder="exemplo@email.com">
 							</div>
 							<div class="col-sm-5">
 								<span class="mensagem" th:if="${#fields.hasErrors('email')}"
 									th:errors="*{email}"></span>
 							</div>
 						</div>
+						
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label">Altura:</label>
+							<div class="col-sm-5">
+								<input class="form-control" type="text" th:field="*{altura}"
+									placeholder="Ex: 1.70">
+							</div>
+							<div class="col-sm-5">
+								<span class="mensagem" th:if="${#fields.hasErrors('altura')}"
+									th:errors="*{altura}"></span>
+							</div>
+						</div>
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Login:</label>
-							<div class="col-sm-4">
+							<div class="col-sm-5">
 								<input class="form-control" type="text" th:field="*{login}">
 							</div>
 							<div class="col-sm-5">
@@ -90,7 +104,7 @@
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Senha:</label>
-							<div class="col-sm-4">
+							<div class="col-sm-5">
 								<input class="form-control" type="text" th:field="*{password}">
 							</div>
 							<div class="col-sm-5">
@@ -102,8 +116,7 @@
 
 
 
-						<!-- 
-					<div class="row mb-3">
+						<!-- 	<div class="row mb-3">
 						<label class="col-sm-2 col-form-label">Senha:</label>
 						<div class="col-sm-4">
 							<input class="form-control" type="text" th:field="*{password}">
@@ -129,26 +142,19 @@
 								<label class="form-check-label">não ativo</label>
 							</div>
 						</div>
+					</div> 	 -->
+					<div class="box-footer">
+					<input class="btn btn-primary mt-3 mb-3" type="submit" value="Alterar" />
+					<a type="button" class="btn btn-default"
+								href="/usuario/admin/listar">Voltar</a>
 					</div>
-					 -->
-						<input class="btn btn-primary" type="submit" value="Alterar" />
 						
+
 					</form>
 				</div>
 			</div>
 		</div>
-		
-	</main>
-	<div class=" text-end fs-6">
-		<footer class="mt-auto py-1 bg-light">
-			<div class="container-fluid fixed-bottom">
-				<span class="text-muted">SyS-Springboot Por: Marcelo F. Lopez
-					|Build: 2023 </span> <span class="text-muted">| <a
-					href="https://github.com/MarceloFLopez">GitHub <i
-						class="bi bi-github"></i></a>
-				</span>
-			</div>
-		</footer>
-	</div>
+
+	<div th:insert="fragment/publica-footer :: footer"></div>
 </body>
 </html>

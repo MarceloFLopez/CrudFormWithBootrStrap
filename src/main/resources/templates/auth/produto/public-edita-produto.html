@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Editar Produto</title>
+<link rel="stylesheet"
+	th:href="@{/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css}">
+<script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js}"></script>
+<link rel="stylesheet"
+	th:href="@{/bootstrap-icons-1.10.5/font/bootstrap-icons.css}">
+</head>
+
+<body>
+
+	<div th:insert="fragment/publica-nav :: nav"></div>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div
+				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1>Registro de Produto</h1>
+				<div class="card-body">
+					<form action="#"
+						th:action="@{/produto/editar/{id}(id=${produto.id})}"
+						th:object="${produto}" method="post">
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label">Nome:</label>
+							<div class="col-sm-5">
+								<input class="form-control" type="text" th:field="*{nome}">
+							</div>
+						</div> 
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label">Marca:</label>
+							<div class="col-sm-5">
+								<input class="form-control" type="text" th:field="*{marca}">
+							</div>
+						</div>
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label">Categoria:</label>
+							<div class="col-sm-5">
+								<input class="form-control" type="text" th:field="*{categoria}">
+							</div>
+						</div> 
+						<div class="row mb-3">
+							<label class="col-sm-2 col-form-label">Categoria:</label>
+							<div class="col-sm-5">
+								<input class="form-control" type="number" th:field="*{quantidade}">
+							</div>
+						</div> 
+		
+							<div class="box-footer">
+								<input class="btn btn-primary mt-3" type="submit" value="Salvar">
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

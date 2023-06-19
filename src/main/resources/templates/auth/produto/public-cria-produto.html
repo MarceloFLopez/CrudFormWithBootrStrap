@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Novo Produto</title>
+<link rel="stylesheet" th:href="@{/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css}">
+<script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js}"></script>
+<link rel="stylesheet" th:href="@{/bootstrap-icons-1.10.5/font/bootstrap-icons.css}">
+</head>
+
+<body>
+
+	<div th:insert="fragment/publica-nav :: nav"></div>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1>Registro de Produto</h1>
+				<div class="card-body">
+					<form th:action="@{/produto/guardar}" th:object="${produto}"  method="post">
+						<div class="form-group">
+							<label>Nome:</label>
+							<input type="text" name="Nome" th:filed="*{nome}" class="form-control" placeholder="Informe o nome" required="required">
+							<label>Marca:</label>
+							<input type="text" name="Marca" th:filed="*{marca}" class="form-control" placeholder="Informe a marca" required="required">
+							<label>Categoria:</label>
+							<input type="text" name="Categoria" th:filed="*{categoria}" class="form-control" placeholder="Informe a categoria" required="required">
+							<label>Preço:</label>
+							<input type="number" name="Quantidade" th:filed="*{quantidade}" class="form-control" placeholder="Informe o preço" required="required">
+							<div class="box-footer">
+							<input class="btn btn-primary mt-3" type="submit" value="Salvar">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	
+	</div>
+
+</body>
+
+</html>

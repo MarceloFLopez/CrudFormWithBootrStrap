@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Index-Produto</title>
+
+<link rel="stylesheet"
+	th:href="@{/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css}">
+<script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js}"></script>
+<link rel="stylesheet"
+	th:href="@{/bootstrap-icons-1.10.5/font/bootstrap-icons.css}">
+</head>
+
+<body>
+
+	<div th:insert="fragment/publica-nav :: nav"></div>
+	<nav class="navbar navbar-expand-lg mt-3 mb-3">
+				
+		<div class="container-fluid">
+						<a class="btn btn-outline-primary "
+							title="Adicionar um novo produto" alt="stackoverflow logo"
+							 th:href="@{/produto/novo/}">Novo<i
+							class="bi bi-person-add "> </i>
+						</a>
+						<button class="navbar-toggler" type="button"
+							data-bs-toggle="collapse"
+							data-bs-target="#navbarSupportedContent"
+							aria-controls="navbarSupportedContent" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+								<li class="nav-item">
+							</ul>
+							<form class="d-flex" >
+								<input class="form-control me-2" type="text" 
+									name="palavraChave"
+									id="palavraChave"
+									th:value="${palavraChave}"
+									required="required"
+									placeholder="Buscar">
+									<button class="btn btn-outline-success mr-3" type="submit"><i class="bi bi-search"></i>
+									</button>
+									<a type="button" class="btn btn-default" style="padding-right: 10"
+								href="/produto">Limpar</a>
+								
+								
+								
+							</form>
+						</div>
+					</div>
+	</nav>
+
+	<div class="container-fluid text-center mt-3">
+		<table class="table table-striped fs-5 mt-4">
+			<thead class="table table-striped fs-5 mt-4">
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">NOME</th>
+					<th scope="col">MARCA</th>
+					<th scope="col">CATEGORIA</th>
+					<th scope="col">QUANTIDADE</th>
+					<th scope="col">AÇÕES</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produto : ${listaProdutos}">
+					<td th:text="${produto.id}"></td>
+					<td th:text="${produto.nome}"></td>
+					<td th:text="${produto.marca}"></td>
+					<td th:text="${produto.categoria}"></td>
+					<td th:text="${produto.quantidade}"></td>
+					<td class="justify-content-end">
+						<div class="btn-group" role="group"
+							aria-label="Basic mixed styles example">
+							<a class="btn btn-outline-primary ml-2"
+								th:href="@{/produto/editar/{id}(id=${produto.id})}"
+								title="Atualizar dados do Usuário" alt="stackoverflow logo"
+								width="120" height="47"> <i class="bi bi-pencil-square"></i>
+							</a>
+						</div> <a class="btn btn-outline-danger "
+						th:href="@{/produto/apagar/{id}(id=${produto.id})}"
+						th:data-confirm-delete="|Você gostaria de apagar ${produto.nome}?|"
+						onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+						title="Deletar Usuário" alt="stackoverflow logo" width="120"
+						height="47"> <i class="bi bi-person-x-fill "></i>
+					</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
