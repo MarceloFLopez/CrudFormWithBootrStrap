@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 <meta charset="UTF-8">
-<title>Lista de usuários</title>
+<title>Index-Produto</title>
 
-<link rel="stylesheet" th:href="@{/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css}">
+<link rel="stylesheet"
+	th:href="@{/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css}">
 <script th:src="@{/jquery-3.6.0-dist/jquery-3.6.0.min.js}"></script>
 <script th:src="@{/bootstrap-5.3.0-alpha1-dist/js/bootstrap.min.js}"></script>
-<link rel="stylesheet" th:href="@{/bootstrap-icons-1.10.5/font/bootstrap-icons.css}">
+<link rel="stylesheet"
+	th:href="@{/bootstrap-icons-1.10.5/font/bootstrap-icons.css}">
 </head>
+
 <body>
 	<div th:insert="fragment/publica-nav :: nav"></div>
 
-	<div class="container-fluid">
+	<div class="container-fluid mt-2">
 		<div class="row">
 			<div class="col ">
-				<nav class="navbar navbar-expand-lg mt-3 mb-3">
+				<nav class="navbar navbar-expand-lg mt-1 mb-3">
 					<div class="container-fluid">
 						<a class="btn btn-outline-primary "
-							title="Adicionar um novo usuário" alt="stackoverflow logo"
-							 th:href="@{/usuario/novo/}">Novo<i
-							class="bi bi-person-add "> </i>
+							title="Adicionar um novo produto" alt="stackoverflow logo"
+							th:href="@{/usuario/novo/}">Novo<i class="bi bi-person-add ">
+						</i>
 						</a>
 						<button class="navbar-toggler" type="button"
 							data-bs-toggle="collapse"
@@ -33,10 +37,15 @@
 							<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 								<li class="nav-item">
 							</ul>
-							<form class="d-flex" role="search">
-								<input class="form-control me-2" type="search"
-									placeholder="Buscar" aria-label="Search">
-								<button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+							<form class="d-flex">
+								<input class="form-control me-2" type="text" name="palavraChave"
+									id="palavraChave" th:value="${palavraChave}"
+									required="required" placeholder="Buscar">
+								<button class="btn btn-outline-success mr-3" type="submit">
+									<i class="bi bi-search"></i>
+								</button>
+								<a type="button" class="btn btn-default"
+									style="padding-right: 10" href="/usuario/admin/listar">Limpar</a>
 							</form>
 						</div>
 					</div>
@@ -44,14 +53,13 @@
 				<table class="table table-striped fs-5 mt-4">
 					<thead>
 						<tr>
-							<th>#</th>
-							<th>Nome</th>
-							<th>CPF</th>
-							<th>Nascimento</th>
-							<th>E-mail</th>
-							<th>Altura</th>
-							<th>Login</th>
-							<th>Ações</th>
+							<th scope="col">ID</th>
+							<th scope="col">NOME</th>
+							<th scope="col">CPF</th>
+							<th scope="col">Nascimento</th>
+							<th scope="col">E-mail</th>
+							<th scope="col">Login</th>
+							<th scope="col">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -59,58 +67,45 @@
 						<tr th:if="${usuarios.empty}">
 							<td colspan="10" class="text-center">Sem usuários</td>
 						</tr>
-
-						<!-- Conteudo da lista -->
-						<tr th:each="usuario : ${usuarios}">
-							<td><span th:text="${usuario.id}"> </span></td>
-							<td><span th:text="${usuario.nome}"> Nome </span></td>
+						<tr  th:each="usuario : ${usuarios}">
+							<td><span th:text="${usuario.id}"></span></td>
+							<td><span  th:text="${usuario.nome}"></span></td>
 							<td><span th:text="${usuario.cpf}"> Cpf </span></td>
-							<td><span
+							<td><span 
 								th:text="${#dates.format(usuario.dataNascimento, 'dd/MM/yyyy')}">
 									Nascimento </span></td>
 							<td><span th:text="${usuario.email}"> E-mail </span></td>
-							<td><span th:text="${usuario.altura}"> Altura </span></td>
 							<td><span th:text="${usuario.login}"> E-Login </span></td>
-
-							<!-- <td><span class="fs-5"
-								th:text="${usuario.ativo} ? 'ATIVO' : 'NÃO ATIVO'">Ativo? </span></td>
-
-							<td style="font-size: 15px"><th:block
-									th:each="pp : ${usuario.papeis}">
-									<span th:text="${pp.papel}">Permissão</span>
-									<br />
-								</th:block>
-							</td> -->
-							<!-- Fim Conteudo da lista -->
-
 							<!-- Buttons -->
 
-							<td class="justify-content-end">
-								<div class="btn-group" role="group"
-									aria-label="Basic mixed styles example">
-									<a class="btn btn-outline-primary ml-2"
-										th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
-										title="Atualizar dados do Usuário" alt="stackoverflow logo"
-										width="120" height="47"> <i class="bi bi-pencil-square"></i>
-									</a> <a class="btn btn-outline-warning"
-										th:href="@{/usuario/editarPapel/{id}(id=${usuario.id})}"
-										title="Editar Permissões de Acesso" alt="stackoverflow logo"
-										width="120" height="47"> <i class="bi bi-lock"></i>
-									</a> <a class="btn btn-outline-danger " th:href="@{/usuario/admin/apagar/{id}(id=${usuario.id})}"
-										th:data-confirm-delete="|Você gostaria de apagar ${usuario.nome}?|"
-										onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
-										title="Deletar Usuário" alt="stackoverflow logo" width="120"
-										height="47"> <i class="bi bi-person-x-fill "></i>
-									</a>
-								</div>
-							</td>
-
+								<td class="justify-content-end">
+									<div class="btn-group" role="group"
+										aria-label="Basic mixed styles example">
+										<a class="btn btn-outline-primary ml-2"
+											th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
+											title="Atualizar dados do Usuário" alt="stackoverflow logo"
+											width="120" height="47"> <i class="bi bi-pencil-square"></i>
+										</a> <a class="btn btn-outline-warning"
+											th:href="@{/usuario/editarPapel/{id}(id=${usuario.id})}"
+											title="Editar Permissões de Acesso" alt="stackoverflow logo"
+											width="120" height="47"> <i class="bi bi-lock"></i>
+										</a> <a class="btn btn-outline-danger "
+											th:href="@{/usuario/admin/apagar/{id}(id=${usuario.id})}"
+											th:data-confirm-delete="|Você gostaria de apagar ${usuario.nome}?|"
+											onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+											title="Deletar Usuário" alt="stackoverflow logo" width="120"
+											height="47"> <i class="bi bi-person-x-fill "></i>
+										</a>
+									</div>
+								</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
+
+
 	<div class="text-end fs-6">
 		<div class="container-fluid ">
 			<footer class="footer mt-auto py-1 bg-light">
@@ -124,5 +119,7 @@
 			</footer>
 		</div>
 	</div>
+
 </body>
+
 </html>

@@ -22,7 +22,10 @@ public class UsuarioService implements UsuarioServiceImpl{
 	}
 
 	@Override
-	public List<Usuario> listarTodos() {
+	public List<Usuario> listarTodos(String palavrachave) {
+		if(palavrachave != null) {
+			return repository.findAll(palavrachave);
+		}
 		return repository.findAll();
 	}
 

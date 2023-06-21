@@ -22,11 +22,11 @@
 					<form th:action="@{/produto/guardar}" th:object="${produto}"  method="post">
 						<div class="form-group">
 							<label>Nome:</label>
-							<input type="text" name="Nome" th:filed="*{nome}" class="form-control" placeholder="Informe o nome" required="required">
+							<input type="text" onkeyup="this.value = this.value.toUpperCase();" name="Nome" th:filed="*{nome}" class="form-control" placeholder="Informe o nome" required="required">
 							<label>Marca:</label>
-							<input type="text" name="Marca" th:filed="*{marca}" class="form-control" placeholder="Informe a marca" required="required">
+							<input type="text" onkeyup="this.value = this.value.toUpperCase();" name="Marca" th:filed="*{marca}" class="form-control" placeholder="Informe a marca" required="required">
 							<label>Categoria:</label>
-							<input type="text" name="Categoria" th:filed="*{categoria}" class="form-control" placeholder="Informe a categoria" required="required">
+							<input type="text" onkeyup="this.value = this.value.toUpperCase();" name="Categoria" th:filed="*{categoria}" class="form-control" placeholder="Informe a categoria" required="required">
 							<label>Preço:</label>
 							<input type="number" name="Quantidade" th:filed="*{quantidade}" class="form-control" placeholder="Informe o preço" required="required">
 							<div class="box-footer">

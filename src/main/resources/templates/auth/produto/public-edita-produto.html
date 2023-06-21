@@ -16,6 +16,7 @@
 
 	<div th:insert="fragment/publica-nav :: nav"></div>
 	<br>
+	
 	<div class="container">
 		<div class="row">
 			<div
@@ -28,19 +29,19 @@
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Nome:</label>
 							<div class="col-sm-5">
-								<input class="form-control" type="text" th:field="*{nome}">
+								<input onkeyup="this.value = this.value.toUpperCase();" class="form-control" type="text" th:field="*{nome}">
 							</div>
 						</div> 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Marca:</label>
 							<div class="col-sm-5">
-								<input class="form-control" type="text" th:field="*{marca}">
+								<input onkeyup="this.value = this.value.toUpperCase();" class="form-control" type="text" th:field="*{marca}">
 							</div>
 						</div>
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Categoria:</label>
 							<div class="col-sm-5">
-								<input class="form-control" type="text" th:field="*{categoria}">
+								<input onkeyup="this.value = this.value.toUpperCase();" class="form-control" type="text" th:field="*{categoria}">
 							</div>
 						</div> 
 						<div class="row mb-3">

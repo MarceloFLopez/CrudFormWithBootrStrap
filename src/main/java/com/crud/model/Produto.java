@@ -48,7 +48,7 @@ public class Produto implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	public String getCategoria() {
@@ -56,7 +56,7 @@ public class Produto implements Serializable {
 	}
 
 	public void setCategoria(String categoria) {
-		this.categoria = categoria;
+		this.categoria = categoria.toUpperCase();
 	}
 
 	public String getMarca() {
@@ -64,7 +64,7 @@ public class Produto implements Serializable {
 	}
 
 	public void setMarca(String marca) {
-		this.marca = marca;
+		this.marca = marca.toUpperCase();
 	}
 
 	public Integer getQuantidade() {

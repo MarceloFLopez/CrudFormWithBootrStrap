@@ -1,5 +1,6 @@
 package com.crud.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -35,16 +36,22 @@ public class UsuarioController {
 		if (result.hasErrors()) {
 			return "/publica-criar-usuario";
 		}
+//		
+//		Usuario usr = service.
+//		if()
+//		
 		service.salvarUsuario(usuario);
 		attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!");
 		return "redirect:/usuario/novo";
 	}
 
 	@GetMapping("/admin/listar")
-	public String listarUsuarios(Model model) {
-		model.addAttribute("usuarios", service.listarTodos());
+	public String listarUsuarios(Model model ,String palavraChave) {
+		List<Usuario> usuarios = service.listarTodos(palavraChave);
+		model.addAttribute("usuarios", usuarios);
 		return "/auth/admin/admin-listar-usuario";
 	}
+		
 
 	@GetMapping("/admin/apagar/{id}")
 	public String deleteUser(@PathVariable("id") long id, Model model) {
@@ -76,5 +83,15 @@ public class UsuarioController {
 	    return "redirect:/usuario/admin/listar";
 	}
 
+	@GetMapping("editarPapel/{id}")
+	public String editarPapelUsuario(@PathVariable("id") long id, Model model) {
+		Optional<Usuario> usuarioVelho = service.buscarId(id);
+		if (!usuarioVelho.isPresent()) {
+            throw new IllegalArgumentException("Usuário inválido:" + id);
+        } 
+		Usuario usuario = usuarioVelho.get();
+	    model.addAttribute("usuario", usuario);
+	    return "/auth/user/user-alterar-papel";
+	}
 
 }

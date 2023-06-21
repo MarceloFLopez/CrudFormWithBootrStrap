@@ -96,18 +96,6 @@ body {
 						</div>
 
 						<div class="row mb-3">
-							<label class="col-sm-2 col-form-label">Altura:</label>
-							<div class="col-sm-4">
-								<input class="form-control" type="text" th:field="*{altura}">
-							</div>
-							<div class="col-sm-4">
-								<span class="mensagem" th:if="${#fields.hasErrors('altura')}"
-									th:errors="*{altura}"></span> <span class="mensagem"
-									th:if="${alturaExiste}" th:text="${alturaExiste}"></span>
-							</div>
-						</div>
-
-						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Login:</label>
 							<div class="col-sm-4">
 								<input class="form-control" type="text" th:field="*{login}">

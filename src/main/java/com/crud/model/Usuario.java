@@ -47,9 +47,6 @@ public class Usuario implements Serializable {
 	@NotNull
 	private String password;
 
-	@NotNull
-	private Double altura;
-
 	@Size(min = 4, message = "O login deve ter no minimo 4 caracteres!")
 	@NotNull
 	private String login;
@@ -65,7 +62,7 @@ public class Usuario implements Serializable {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.toUpperCase();
 	}
 
 	public void setId(Long id) {
@@ -97,15 +94,15 @@ public class Usuario implements Serializable {
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.email = email.toUpperCase();
 	}
 
 	public String getPassword() {
-		return password;
+		return password.toUpperCase();
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = password.toUpperCase();
 	}
 
 	public String getLogin() {
@@ -113,7 +110,7 @@ public class Usuario implements Serializable {
 	}
 
 	public void setLogin(String login) {
-		this.login = login;
+		this.login = login.toUpperCase();
 	}
 
 	public boolean isAtvio() {
@@ -124,19 +121,10 @@ public class Usuario implements Serializable {
 		this.atvio = atvio;
 	}
 
-	public Double getAltura() {
-		return altura;
-	}
-
-	public void setAltura(Double altura) {
-		this.altura = altura;
-	}
-
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
-				+ ", email=" + email + ", password=" + password + ", altura=" + altura + ", login=" + login + ", atvio="
-				+ atvio + "]";
+				+ ", email=" + email + ", password=" + password + ", login=" + login + ", atvio=" + atvio + "]";
 	}
 
 }
