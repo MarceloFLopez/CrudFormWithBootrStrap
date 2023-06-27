@@ -48,6 +48,8 @@
 							<div class="col-sm-5">
 								<span class="mensagem" th:if="${#fields.hasErrors('cpf')}"
 									th:errors="*{cpf}"></span>
+								<span class="mensagem"
+									th:if="${cpfExiste}" th:text="${cpfExiste}"></span>
 							</div>
 						</div>
 
@@ -74,6 +76,8 @@
 							<div class="col-sm-5">
 								<span class="mensagem" th:if="${#fields.hasErrors('email')}"
 									th:errors="*{email}"></span>
+								<span class="mensagem"
+									th:if="${emailExiste}" th:text="${emailExiste}"></span>
 							</div>
 						</div>
 
@@ -96,6 +100,8 @@
 							<div class="col-sm-5">
 								<span class="mensagem" th:if="${#fields.hasErrors('password')}"
 									th:errors="*{password}"></span>
+								<span class="mensagem"
+									th:if="${loginExiste}" th:text="${loginExiste}"></span>	
 							</div>
 						</div>
 

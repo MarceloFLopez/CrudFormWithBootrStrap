@@ -53,7 +53,8 @@
 						<label class="col-sm-2 col-form-label">Nascimento:</label>
 						<div class="col-sm-5">
 							<input class="form-control" type="text"
-								placeholder="Ex: 01/10/2000" th:field="*{dataNascimento}"disabled>
+								placeholder="Ex: 01/10/2000" th:field="*{dataNascimento}"
+								disabled>
 						</div>
 
 					</div>
@@ -72,23 +73,28 @@
 					<div class="row mb-3">
 						<label class="col-sm-2 col-form-label">Login:</label>
 						<div class="col-sm-5">
-							<input class="form-control" type="text" th:field="*{login}" disabled>
+							<input class="form-control" type="text" th:field="*{login}"
+								disabled>
 						</div>
 
 					</div>
 
-
-					<!-- <div class="row mb-3">
-						<label class="col-sm-1 col-form-label">Situação:</label>
+					<div class="row mb-3">
+						<label class="col-sm-2 col-form-label">Situação:</label>
 						<div class="col-sm-2">
 							<div class="form-check form-check-inline">
 								<input class="form-check-input" type="radio" value="true"
-									th:field="*{ativo}" disabled> <label
+									th:field="*{atvio}" > <label
 									class="form-check-label">ativo</label>
 							</div>
 
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="radio" value="false"
+									th:field="*{atvio}" > <label
+									class="form-check-label">inativo</label>
+							</div>
 						</div>
-					</div> -->
+					</div>
 
 
 					<div class="box-footer">

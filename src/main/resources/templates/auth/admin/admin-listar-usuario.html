@@ -50,7 +50,7 @@
 						</div>
 					</div>
 				</nav>
-				<table class="table table-striped fs-5 mt-4">
+				<table class="table table-striped fs-5 mt-4 ">
 					<thead>
 						<tr>
 							<th scope="col">ID</th>
@@ -67,44 +67,43 @@
 						<tr th:if="${usuarios.empty}">
 							<td colspan="10" class="text-center">Sem usuários</td>
 						</tr>
-						<tr  th:each="usuario : ${usuarios}">
+						<tr th:each="usuario : ${usuarios}">
 							<td><span th:text="${usuario.id}"></span></td>
-							<td><span  th:text="${usuario.nome}"></span></td>
+							<td><span th:text="${usuario.nome}"></span></td>
 							<td><span th:text="${usuario.cpf}"> Cpf </span></td>
-							<td><span 
+							<td><span
 								th:text="${#dates.format(usuario.dataNascimento, 'dd/MM/yyyy')}">
 									Nascimento </span></td>
 							<td><span th:text="${usuario.email}"> E-mail </span></td>
 							<td><span th:text="${usuario.login}"> E-Login </span></td>
 							<!-- Buttons -->
 
-								<td class="justify-content-end">
-									<div class="btn-group" role="group"
-										aria-label="Basic mixed styles example">
-										<a class="btn btn-outline-primary ml-2"
-											th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
-											title="Atualizar dados do Usuário" alt="stackoverflow logo"
-											width="120" height="47"> <i class="bi bi-pencil-square"></i>
-										</a> <a class="btn btn-outline-warning"
-											th:href="@{/usuario/editarPapel/{id}(id=${usuario.id})}"
-											title="Editar Permissões de Acesso" alt="stackoverflow logo"
-											width="120" height="47"> <i class="bi bi-lock"></i>
-										</a> <a class="btn btn-outline-danger "
-											th:href="@{/usuario/admin/apagar/{id}(id=${usuario.id})}"
-											th:data-confirm-delete="|Você gostaria de apagar ${usuario.nome}?|"
-											onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
-											title="Deletar Usuário" alt="stackoverflow logo" width="120"
-											height="47"> <i class="bi bi-person-x-fill "></i>
-										</a>
-									</div>
-								</td>
+							<td class="justify-content-end">
+								<div class="btn-group" role="group"
+									aria-label="Basic mixed styles example">
+									<a class="btn btn-outline-primary ml-2"
+										th:href="@{/usuario/editar/{id}(id=${usuario.id})}"
+										title="Atualizar dados do Usuário" alt="stackoverflow logo"
+										width="120" height="47"> <i class="bi bi-pencil-square"></i>
+									</a> <a class="btn btn-outline-warning"
+										th:href="@{/usuario/editarPapel/{id}(id=${usuario.id})}"
+										title="Editar Permissões de Acesso" alt="stackoverflow logo"
+										width="120" height="47"> <i class="bi bi-lock"></i>
+									</a> <a class="btn btn-outline-danger "
+										th:href="@{/usuario/admin/apagar/{id}(id=${usuario.id})}"
+										th:data-confirm-delete="|Você gostaria de apagar ${usuario.nome}?|"
+										onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+										title="Deletar Usuário" alt="stackoverflow logo" width="120"
+										height="47"> <i class="bi bi-person-x-fill "></i>
+									</a>
+								</div>
+							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-
 
 	<div class="text-end fs-6">
 		<div class="container-fluid ">

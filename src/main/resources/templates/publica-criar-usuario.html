@@ -13,7 +13,7 @@
 <style>
 .mensagem {
 	color: red;
-	font-size: 12px
+	font-size: 15px
 }
 
 body {
@@ -34,8 +34,7 @@ body {
 						<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 						<span th:text="${mensagem}"></span>
 					</div>
-					<div class="alert alert-danger alert-dismissible fade show"
-						th:if="${error}">
+					<div class="alert alert-danger alert-dismissible fade show" th:if="${error}">
 						<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 						<span th:text="${error}"></span>
 					</div>
@@ -50,34 +49,28 @@ body {
 								<input class="form-control" type="text" th:field="*{nome}">
 							</div>
 							<div class="col-sm-5">
-								<span class="mensagem" th:if="${#fields.hasErrors('nome')}"
-									th:errors="*{nome}"></span>
+								<span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 							</div>
 						</div>
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">CPF:</label>
 							<div class="col-sm-4">
-								<input class="form-control" type="text" th:field="*{cpf}"
-									placeholder="Ex: 123.456.789-10">
+								<input class="form-control" type="text" th:field="*{cpf}" placeholder="Ex: 123.456.789-10">
 							</div>
 							<div class="col-sm-5">
-								<span class="mensagem" th:if="${#fields.hasErrors('cpf')}"
-									th:errors="*{cpf}"></span> <span class="mensagem"
-									th:if="${cpfExiste}" th:text="${cpfExiste}"></span>
+								<span class="mensagem" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span> 
+								<span class="mensagem" th:if="${cpfExiste}" th:text="${cpfExiste}"></span>
 							</div>
 						</div>
 
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Nascimento:</label>
 							<div class="col-sm-4">
-								<input class="form-control" type="text"
-									th:field="*{dataNascimento}" placeholder="Ex: 01/01/2000">
+								<input class="form-control" type="text" th:field="*{dataNascimento}" placeholder="Ex: 01/01/2000">
 							</div>
 							<div class="col-sm-5">
-								<span class="mensagem"
-									th:if="${#fields.hasErrors('dataNascimento')}"
-									th:errors="*{dataNascimento}"></span>
+								<span class="mensagem" th:if="${#fields.hasErrors('dataNascimento')}" th:errors="*{dataNascimento}"></span>
 							</div>
 						</div>
 
@@ -85,13 +78,11 @@ body {
 						<div class="row mb-3">
 							<label class="col-sm-2 col-form-label">Email:</label>
 							<div class="col-sm-4">
-								<input class="form-control" type="text" th:field="*{email}"
-									placeholder="Ex: exemplo@email.com ">
+								<input class="form-control" type="text" th:field="*{email}" placeholder="Ex: exemplo@email.com ">
 							</div>
 							<div class="col-sm-5">
-								<span class="mensagem" th:if="${#fields.hasErrors('email')}"
-									th:errors="*{email}"></span> <span class="mensagem"
-									th:if="${emailExiste}" th:text="${emailExiste}"></span>
+								<span class="mensagem" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span> 
+								<span class="mensagem" th:if="${emailExiste}" th:text="${emailExiste}"></span>
 							</div>
 						</div>
 
@@ -102,8 +93,8 @@ body {
 							</div>
 							<div class="col-sm-4">
 								<span class="mensagem" th:if="${#fields.hasErrors('login')}"
-									th:errors="*{login}"></span> <span class="mensagem"
-									th:if="${loginExiste}" th:text="${loginExiste}"></span>
+									th:errors="*{login}"></span> 
+								<span class="mensagem" th:if="${loginExiste}" th:text="${loginExiste}"></span>
 							</div>
 						</div>
 
@@ -113,15 +104,13 @@ body {
 								<input class="form-control" type="text" th:field="*{password}">
 							</div>
 							<div class="col-sm-5">
-								<span class="mensagem" th:if="${#fields.hasErrors('password')}"
-									th:errors="*{password}"></span>
+								<span class="mensagem" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
 							</div>
 						</div>
 
 						<div class="box-footer pb-4">
 							<input class="btn btn-primary" type="submit" value="Salvar">
-							<a type="button" class="btn btn-default"
-								href="/usuario/admin/listar">Voltar</a>
+							<a type="button" class="btn btn-default"href="/usuario/admin/listar">Voltar</a>
 						</div>
 
 					</form>

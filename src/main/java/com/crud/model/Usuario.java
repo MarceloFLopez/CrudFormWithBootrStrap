@@ -2,12 +2,17 @@ package com.crud.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
@@ -42,6 +47,12 @@ public class Usuario implements Serializable {
 
 	@Email(message = "Email Inválido!")
 	private String email;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "usuario_papel",
+				joinColumns = @JoinColumn(name = "usuario_id"),
+				inverseJoinColumns = @JoinColumn(name = "papel_id"))
+	private List<Papel> papeis;
 
 	@Size(min = 4, message = "O password deve ter no minimo 4 caracteres!")
 	@NotNull
@@ -57,12 +68,20 @@ public class Usuario implements Serializable {
 		return id;
 	}
 
+	public List<Papel> getPapeis() {
+		return papeis;
+	}
+
+	public void setPapeis(List<Papel> papeis) {
+		this.papeis = papeis;
+	}
+
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome.toUpperCase();
+		this.nome = nome;
 	}
 
 	public void setId(Long id) {
@@ -94,15 +113,15 @@ public class Usuario implements Serializable {
 	}
 
 	public void setEmail(String email) {
-		this.email = email.toUpperCase();
+		this.email = email;
 	}
 
 	public String getPassword() {
-		return password.toUpperCase();
+		return password;
 	}
 
 	public void setPassword(String password) {
-		this.password = password.toUpperCase();
+		this.password = password;
 	}
 
 	public String getLogin() {
@@ -110,7 +129,7 @@ public class Usuario implements Serializable {
 	}
 
 	public void setLogin(String login) {
-		this.login = login.toUpperCase();
+		this.login = login;
 	}
 
 	public boolean isAtvio() {
